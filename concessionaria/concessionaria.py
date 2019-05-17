@@ -18,7 +18,7 @@ mysql.init_app(app)
 # Configurando o acesso ao MySQL
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'faculdade'
+app.config['MYSQL_DATABASE_DB'] = 'concessionaria'
 
 # Rota para /
 @app.route('/')
