@@ -17,18 +17,22 @@ mysql.init_app(app)
 
 # Configurando o acesso ao MySQL
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'banco'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_DB'] = 'concessionaria'
 
 # Rota para /
 @app.route('/')
 def principal():
     return render_template('index.html')
 
+# Rota para /
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 # Rota para /login
-@app.route('/login', methods=['GET','POST'])
-def login():
+@app.route('/log', methods=['GET','POST'])
+def log():
     if request.method == 'POST':
         login = request.form.get('login')
         senha = request.form.get('senha')
@@ -41,13 +45,12 @@ def login():
 
         # Verificar a senha
         if idlogin is None:
-            return redirect(url_for('static', filename='login.html', erro='Login/senha incorretos!'))
-            #return render_template('static/login.html', erro='Login/senha incorretos!')
+            return render_template('login.html',erro='Login/senha incorretos!')
         else:
             # Obtendo o cursor para acessar o BD
             #cursor = mysql.get_db().cursor()
-            return redirect(url_for('static', filename='login.html'))
-            #return render_template('static/login.html', erro='Login/senha incorretos!')
+            #return redirect(url_for('static', filename='login.html'))
+            return render_template('index.html')
 
     else:
         return render_template('login.html', erro='Método incorreto. Use POST!')
