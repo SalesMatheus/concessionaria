@@ -31,7 +31,7 @@ def login():
     return render_template('login.html')
 
 # Rota para /login
-@app.route('/log', methods=['GET','POST'])
+@app.route('/adm', methods=['GET','POST'])
 def log():
     if request.method == 'POST':
         login = request.form.get('login')
@@ -48,9 +48,9 @@ def log():
             return render_template('login.html',erro='Login/senha incorretos!')
         else:
             # Obtendo o cursor para acessar o BD
-            #cursor = mysql.get_db().cursor()
+            cursor = mysql.get_db().cursor()
             #return redirect(url_for('static', filename='login.html'))
-            return render_template('index.html')
+            return render_template('index.html', idlogin = get_idlogin(cursor, login, senha))
 
     else:
         return render_template('login.html', erro='Método incorreto. Use POST!')

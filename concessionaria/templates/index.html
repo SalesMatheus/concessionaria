@@ -15,26 +15,28 @@
 		<a href="/"><img src="static/images/logo.png" alt="" title="logo"></a>
 	</div>
 	<div class="hdr-nav">
-  	<ul class="nav">
-                <li><a href="/">Home</a></li>
-                <li><a class="hsubs" href="static/about.html">About</a>
+  	    <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li><a class="hsubs" href="static/about.html">About</a>
+                <ul class="subs">
+                    <li><a href="static/about.html">Submenu 1</a></li>
+                    <li><a href="static/about.html">Submenu 2</a></li>
+                    <li><a href="static/about.html">Submenu 3</a></li>
+                </ul>
+            </li>
+            {% if idlogin %}
+                <li><a class="hsubs" href="service.html">Services</a>
                     <ul class="subs">
-                        <li><a href="static/about.html">Submenu 1</a></li>
-                        <li><a href="static/about.html">Submenu 2</a></li>
-                        <li><a href="static/about.html">Submenu 3</a></li>
-                    </ul>
-                </li>
-                <li><a class="hsubs" href="static/service.html">Services</a>
-                    <ul class="subs">
-                        <li><a href="static/service.html">Service 01</a></li>
-                        <li><a href="static/service.html">Service 02</a></li>
-                        <li><a href="static/service.html">Service 03</a></li>
-                        <li><a href="static/service.html">Service 04</a></li>
+                        <li><a href="static/service.html">Advertisement</a></li>
+                        <li><a href="static/service.html">Users</a></li>
+                        <li><a href="static/service.html">Vips</a></li>
                      </ul>
                 </li>
+            {% else %}
                 <li><a href="/login">Login</a></li>
-                <div id="lavalamp"></div>
-            </ul>
+            {% endif %}
+            <div id="lavalamp"></div>
+        </ul>
 
 		</div>
 	<div class="clear"></div>
@@ -94,19 +96,19 @@
         <div class="section group">
             <div class="grid_1_of_4 images_1_of_4">
                 <h3>Welcome</h3>
-                <a href="static/details.html"><img src="static/images/slider3.jpg" alt="" /></a>
+                <a href="static/details.html"><img src="static/images/slider7.jpg" alt="" /></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                 <div class="btn"><a href="static/details.html" class="link"><span><span>Read more</span></span></a></div>
             </div>
             <div class="grid_1_of_4 images_1_of_4">
                 <h3>Welcome</h3>
-                <a href="static/details.html"><img src="static/images/slider1.jpg" alt="" /></a>
+                <a href="static/details.html"><img src="static/images/slider5.jpg" alt="" /></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                 <div class="btn"><a href="static/details.html" class="link"><span><span>Read more</span></span></a></div>
             </div>
             <div class="grid_1_of_4 images_1_of_4">
                 <h3>Welcome</h3>
-                <a href="static/details.html"><img src="static/images/slider2.jpg" alt="" /></a>
+                <a href="static/details.html"><img src="static/images/slider8.jpg" alt="" /></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                 <div class="btn"><a href="static/details.html" class="link"><span><span>Read more</span></span></a></div>
             </div>
