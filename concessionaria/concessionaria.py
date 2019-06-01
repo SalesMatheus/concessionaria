@@ -17,7 +17,7 @@ mysql.init_app(app)
 
 # Configurando o acesso ao MySQL
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'concessionaria'
 
 # Rota para /
@@ -25,12 +25,17 @@ app.config['MYSQL_DATABASE_DB'] = 'concessionaria'
 def principal():
     return render_template('index.html')
 
-# Rota para /
+# Rota para /login
 @app.route('/login')
 def login():
     return render_template('login.html')
 
-# Rota para /login
+# Rota para /usuario
+@app.route('/usuario')
+def usuario():
+    return render_template('usuario.html')
+
+# Rota para /adm
 @app.route('/adm', methods=['GET','POST'])
 def log():
     if request.method == 'POST':
