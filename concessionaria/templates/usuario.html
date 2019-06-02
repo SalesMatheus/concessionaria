@@ -24,7 +24,7 @@
                             <li><a href="static/about.html">Submenu 3</a></li>
                         </ul>
                     </li>-->
-                    <li><a class="hsubs" href="#">Services</a>
+                    <li><a class="hsubs" href="#">Serviços</a>
                         <ul class="subs">
                             <li><a href="static/service.html">Advertisement</a></li>
                             <li><a href="static/service.html">Vips</a></li>
@@ -42,24 +42,25 @@
     <div class="content abt">
         <div class="section group">
             <div class="col span_2_of_3">
-                  <div class="contact-form">
-                    <h3>Cadastrar Usuário</h3>
-                        <form action="/novo_usuario/{{idlogin}}" method="post">
-                            <div>
-                                <span><label>NOME</label></span>
-                                <span><input type="text" name="nome" required></span>
-                            </div>
-                            <div>
-                                <span><label>LOGIN</label></span>
-                                <span><input type="text" name="login" required></span>
-                            </div>
-                            <div>
-                                <span><label>SENHA</label></span>
-                                <span><input type="text" name="senha" required></span>
-                            </div>
-                           <div>
-                                <span><input type="submit" value="cadastrar"></span>
-                           </div>
+                <div class="contact-form">
+                <h3>Cadastrar Usuário</h3>
+                    <form action="/novo_usuario/{{idlogin}}" method="post">
+                        <div>
+                            <span><label>NOME</label></span>
+                            <span><input type="text" name="nome" required></span>
+                        </div>
+                        <div>
+                            <span><label>LOGIN</label></span>
+                            <span><input type="text" name="login" required></span>
+                        </div>
+                        <div>
+                            <span><label>SENHA</label></span>
+                            <span><input type="text" name="senha" required></span>
+                        </div>
+                        <div>
+                            <span><input style="left: 850px;" type="submit" value="Cadastrar"></span>
+                            <span><input onclick="goBack()" style="left: 758px; top:-36px" type="submit" value="Voltar"></span>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -116,5 +117,10 @@
         </div>
     </div>
 </div>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </body>
 </html>

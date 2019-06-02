@@ -21,6 +21,19 @@ def usuario_cadastrar(conn,cursor, nome, usuario, login):
     cursor.execute(f'INSERT INTO `concessionaria`.`usuario` (`nome`,`login`, `senha`) VALUES ("{nome}", "{usuario}" ,"{login}")')
     conn.commit()
 
+# Função listar usuario
+def listar_usuario(cursor):
+    # Executar o sql
+    cursor.execute(f'SELECT id_usuario, nome, login, senha FROM concessionaria.usuario ORDER BY id_usuario ASC;')
+
+    # Recuperando o retorno do BD
+    usuarios = cursor.fetchall()
+
+    # Fechar o cursor
+    cursor.close()
+
+    return usuarios
+
 
 # Função validar login
 def get_idlogin(cursor, login, senha):

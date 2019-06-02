@@ -17,7 +17,7 @@ mysql.init_app(app)
 
 config(app)
 
-# Rota para /
+# Rotas para o index
 @app.route('/')
 @app.route('/<idlogin>')
 def principal(idlogin=None):
@@ -33,9 +33,18 @@ def login():
 def usuario(idlogin):
     return render_template('usuario.html', idlogin=idlogin)
 
-# rota para salvar a alteração
+# Rota para /usuario_listar
+@app.route('/usuario_listar/<idlogin>')
+def usuario_listar(idlogin):
+
+    # recupera conexao e cursor
+    conn, cursor = get_db(mysql)
+
+    return render_template('usuario_listar.html', idlogin=idlogin, usuarios = listar_usuario(cursor))
+
+# rota para salvar novo usuario
 @app.route('/novo_usuario/<idlogin>' , methods=['GET','POST'])
-def salvar_url(idlogin):
+def salvar_usuario(idlogin):
 
     # recuperar os parametros
     nome = request.form.get('nome')
@@ -46,12 +55,12 @@ def salvar_url(idlogin):
         # recupera conexao e cursor
         conn, cursor = get_db(mysql)
 
-        # Inserindo novo usuario no banco de daods
+        # Inserindo novo usuario no banco de dados
         usuario_cadastrar(conn, cursor, nome, login, senha)
 
-        return render_template('index.html', idlogin=idlogin)
+        return render_template('usuario_listar.html', usuarios = listar_usuario(cursor), idlogin=idlogin)
     else:
-        return redirect(url_for('static', filename='404.html', erro='Preencha todos os campos!', idlogin=idlogin))
+        return redirect(url_for('static', filename='404.html', idlogin=idlogin))
 
 # Rota para /adm
 @app.route('/adm', methods=['GET','POST'])

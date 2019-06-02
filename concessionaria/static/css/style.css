@@ -28,6 +28,15 @@ body{
 	font-size: 0.843em;
 	color:#777;
 }
+table{
+	border-image: url('../images/body-bg.png');
+	background: url('../images/body-bg.png');
+	font-family: "verdana", Arial, Helvetica, sans-serif;
+	font-size: 0.843em;
+	color:#777;
+}
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
+
 .wrap{
 	width:80%;
 	margin: 0 auto;
@@ -1189,12 +1198,12 @@ Supports Thumbs: true
 	height:120px;		
 }
 .contact-form input[type="submit"]{
-	border:1px solid #F6450E;	
+	border:1px solid #F6450E;
 	font-size:1em;
 	padding:7px 20px;
 	cursor:pointer;
-    position:absolute;
-    right:0;
+    position:relative;
+	left: 800px;
 }
 .company_address{
 	padding-top:26px;
@@ -1353,6 +1362,30 @@ Supports Thumbs: true
 }
 .page h2{
 	font-size:12em;
+}
+.page h1{
+	font-size:3em;
+	color: #999;
+	text-transform: capitalize;
+    letter-spacing: 0px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: normal;
+}
+.page th{
+	font-size: 2.0em;
+	color: #999;
+	text-transform: capitalize;
+    letter-spacing: 0px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: normal;
+}
+.page td{
+	font-size: 1.5em;
+	color: #999;
+	text-transform: capitalize;
+    letter-spacing: 0px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: normal;
 }
 @media only screen and (max-width: 1024px) {
 	.social-icons li.facebook{
@@ -1549,3 +1582,40 @@ Supports Thumbs: true
 		font-size: 1.4em;
 	}
 }
+.styled {
+	position: relative;
+  	left: 650px;
+	top: -10px;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: rgb(80, 37, 17);
+	text-transform: capitalize;
+    border-radius: 10px;
+    background-color: #F6450E;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+    font-size: 1em;
+    cursor: pointer;
+    right: 0;
+}
+
+.styled:hover {
+    background-color: #F6450E;
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+
+
+
