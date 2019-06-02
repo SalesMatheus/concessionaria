@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -11,11 +11,28 @@
     <div class="wrap">
         <div class="header">
             <div class="logo">
-                <a href="/"><img src="static/images/logo.png" alt="" title="logo"></a>
+                <a href="/"><img src="../static/images/logo.png" alt="" title="logo"></a>
             </div>
             <div class="hdr-nav">
                 <ul class="nav">
                     <li><a href="/">Home</a></li>
+                    <li><a class="hsubs" href="static/about.html">About</a>
+                        <ul class="subs">
+                            <li><a href="static/about.html">Submenu 1</a></li>
+                            <li><a href="static/about.html">Submenu 2</a></li>
+                            <li><a href="static/about.html">Submenu 3</a></li>
+                        </ul>
+                    </li>
+                    {% if idlogin %}
+                        <li><a class="hsubs" href="service.html">Services</a>
+                            <ul class="subs">
+                                <li><a href="static/service.html">Advertisement</a></li>
+                                <li><a href="static/service.html">Vips</a></li>
+                             </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="/login">Login</a></li>
+                    {% endif %}
                     <div id="lavalamp"></div>
                 </ul>
             </div>
@@ -29,21 +46,21 @@
             <div class="col span_2_of_3">
                   <div class="contact-form">
                     <h3>Cadastrar Usuário</h3>
-                        <form>
+                        <form action="/novo_usuario" method="post">
                             <div>
                                 <span><label>NOME</label></span>
-                                <span><input type="text" value=""></span>
+                                <span><input type="text" name="nome"></span>
                             </div>
                             <div>
                                 <span><label>LOGIN</label></span>
-                                <span><input type="text" value=""></span>
+                                <span><input type="text" name="login"></span>
                             </div>
                             <div>
                                 <span><label>SENHA</label></span>
-                                <span><input type="text" value=""></span>
+                                <span><input type="text" name="senha"></span>
                             </div>
                            <div>
-                                <span><input type="submit" value="Cadastrar"></span>
+                                <span><input type="submit" value="cadastrar"></span>
                            </div>
                     </form>
                 </div>

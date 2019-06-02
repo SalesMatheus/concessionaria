@@ -15,10 +15,7 @@ mysql = MySQL()
 # Ligar o MYSQL ao Flask
 mysql.init_app(app)
 
-# Configurando o acesso ao MySQL
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
-app.config['MYSQL_DATABASE_DB'] = 'concessionaria'
+config(app)
 
 # Rota para /
 @app.route('/')
@@ -31,9 +28,27 @@ def login():
     return render_template('login.html')
 
 # Rota para /usuario
-@app.route('/usuario')
-def usuario():
-    return render_template('usuario.html')
+@app.route('/usuario/<idlogin>')
+def usuario(idlogin):
+    return render_template('usuario.html', idlogin=idlogin)
+
+# rota para salvar a alteração
+@app.route('/novo_usuario/<idlogin>' , methods=['GET','POST'])
+def salvar_url(idlogin):
+
+    # recuperar os parametros
+    nome = request.form.get('nome')
+    login = request.form.get('login')
+    senha = request.form.get('senha')
+
+    # recupera conexao e cursor
+    conn, cursor = get_db(mysql)
+
+    # Inserindo nova url no banco de daods
+    usuario_cadastrar(conn, cursor, nome, login, senha)
+
+    # redirecionando para index com botão de listagem de urls
+    return render_template('index.html', idlogin=idlogin)
 
 # Rota para /adm
 @app.route('/adm', methods=['GET','POST'])
