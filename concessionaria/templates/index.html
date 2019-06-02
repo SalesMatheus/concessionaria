@@ -5,40 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-<!--slider-->
+
 </head>
 <body>
 <div class="header-bg">
     <div class="wrap">
         <div class="header">
             <div class="logo">
-                <a href="/"><img src="../static/images/logo.png" alt="" title="logo"></a>
+                {% if idlogin %}
+                    <a href="/{{idlogin}}"><img src="../static/images/logo.png" alt="" title="logo"></a>
+                {% else %}
+                    <a href="/"><img src="../static/images/logo.png" alt="" title="logo"></a>
+                {% endif %}
             </div>
             <div class="hdr-nav">
                 <ul class="nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a class="hsubs" href="../static/about.html">About</a>
-                        <ul class="subs">
-                            <li><a href="../static/about.html">Submenu 1</a></li>
-                            <li><a href="../static/about.html">Submenu 2</a></li>
-                            <li><a href="../static/about.html">Submenu 3</a></li>
-                        </ul>
-                    </li>
                     {% if idlogin %}
-                        <li><a class="hsubs" href="../service.html">Services</a>
+                        <li><a href="/{{idlogin}}">Home</a></li>
+                        <li><a class="hsubs" href="#">Services</a>
                             <ul class="subs">
                                 <li><a href="../static/service.html">Advertisement</a></li>
                                 <li><a href="/usuario/{{idlogin}}">Users</a></li>
                                 <li><a href="../static/service.html">Vips</a></li>
                              </ul>
                         </li>
+                        <li><a class="hsubs" href="/">Logoff</a></li>
                     {% else %}
+                        <li><a href="/">Home</a></li>
                         <li><a href="/login">Login</a></li>
                     {% endif %}
+                       <!-- <li><a class="hsubs" href="../static/about.html">About</a>
+                            <ul class="subs">
+                                <li><a href="../static/about.html">Submenu 1</a></li>
+                                <li><a href="../static/about.html">Submenu 2</a></li>
+                                <li><a href="../static/about.html">Submenu 3</a></li>
+                            </ul>
+                        </li>-->
                     <div id="lavalamp"></div>
                 </ul>
-
-                </div>
+            </div>
             <div class="clear"></div>
         </div>
     </div>

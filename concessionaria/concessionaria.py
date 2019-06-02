@@ -19,8 +19,9 @@ config(app)
 
 # Rota para /
 @app.route('/')
-def principal():
-    return render_template('index.html')
+@app.route('/<idlogin>')
+def principal(idlogin=None):
+    return render_template('index.html', idlogin = idlogin)
 
 # Rota para /login
 @app.route('/login')
