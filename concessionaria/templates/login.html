@@ -5,11 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 {% if erro %}
-    <span style="color:red">{{erro}}</span><br>
+  <div class="alert alert-danger alert-dismissible fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>ERRO!</strong> {{erro}}
+  </div>
 {% endif %}
+
 <div class="header-bg">
    <div class="wrap">
       <div class="header">
@@ -42,11 +50,11 @@
                 <form action="/adm" method="post">
                     <div>
                         <span><label>NAME</label></span>
-                        <span><input type="text" name="login"></span>
+                        <span><input type="text" name="login" required></span>
                     </div>
                     <div>
                         <span><label>PASSWORD</label></span>
-                        <span><input type="text" name="senha"></span>
+                        <span><input type="text" name="senha" required></span>
                     </div>
                     <div>
                         <span><input type="submit" value="Logar"></span>

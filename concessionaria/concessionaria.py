@@ -41,14 +41,16 @@ def salvar_url(idlogin):
     login = request.form.get('login')
     senha = request.form.get('senha')
 
-    # recupera conexao e cursor
-    conn, cursor = get_db(mysql)
+    if(nome and login and senha):
+        # recupera conexao e cursor
+        conn, cursor = get_db(mysql)
 
-    # Inserindo nova url no banco de daods
-    usuario_cadastrar(conn, cursor, nome, login, senha)
+        # Inserindo novo usuario no banco de daods
+        usuario_cadastrar(conn, cursor, nome, login, senha)
 
-    # redirecionando para index com botão de listagem de urls
-    return render_template('index.html', idlogin=idlogin)
+        return render_template('index.html', idlogin=idlogin)
+    else:
+        return redirect(url_for('static', filename='404.html', erro='Preencha todos os campos!', idlogin=idlogin))
 
 # Rota para /adm
 @app.route('/adm', methods=['GET','POST'])
@@ -67,10 +69,7 @@ def log():
         if idlogin is None:
             return render_template('login.html',erro='Login/senha incorretos!')
         else:
-            # Obtendo o cursor para acessar o BD
-            cursor = mysql.get_db().cursor()
-            #return redirect(url_for('static', filename='login.html'))
-            return render_template('index.html', idlogin = get_idlogin(cursor, login, senha))
+            return render_template('index.html', idlogin = idlogin[0])
 
     else:
         return render_template('login.html', erro='Método incorreto. Use POST!')

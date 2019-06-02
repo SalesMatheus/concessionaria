@@ -17,9 +17,7 @@ def get_db(mysql):
 
 #insere usuario
 def usuario_cadastrar(conn,cursor, nome, usuario, login):
-    print(nome)
-    print(usuario)
-    print(login)
+
     cursor.execute(f'INSERT INTO `concessionaria`.`usuario` (`nome`,`login`, `senha`) VALUES ("{nome}", "{usuario}" ,"{login}")')
     conn.commit()
 
@@ -36,4 +34,4 @@ def get_idlogin(cursor, login, senha):
     cursor.close()
 
     # Retornar o idlogin
-    return idlogin[0]
+    return idlogin
