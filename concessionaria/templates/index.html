@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<title>Cars Sales</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-
+<script type="text/javascript" src="../static/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.nivo.slider.js"></script>
 </head>
 <body>
 <div class="header-bg">
@@ -13,9 +15,9 @@
         <div class="header">
             <div class="logo">
                 {% if idlogin %}
-                    <a href="/{{idlogin}}"><img src="../static/images/logo.png" alt="" title="logo"></a>
+                    <a href="/{{idlogin}}"><img src="../static/images/logo3.png" alt="" title="logo"></a>
                 {% else %}
-                    <a href="/"><img src="../static/images/logo.png" alt="" title="logo"></a>
+                    <a href="/"><img src="../static/images/logo3.png" alt="" title="logo"></a>
                 {% endif %}
             </div>
             <div class="hdr-nav">
@@ -61,14 +63,6 @@
                 <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
             </div>
         </div>
-    <script type="text/javascript" src="../static/js/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../static/js/jquery.nivo.slider.js"></script>
-    <script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-
-    </script>
     </div>
 </div>
 <div class="wrap">
@@ -119,10 +113,10 @@
             </div>
             <div class="rsidebar span_1_of_4">
                   <h3>More VIP Cars</h3>
-                  <p class="top"><a href=""><img src="../static/images/art-pic1.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
-                  <p class="top"><a href=""><img src="../static/images/art-pic4.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
-                  <p class="top"><a href=""><img src="../static/images/art-pic3.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
-                  <p class="top"><a href=""><img src="../static/images/art-pic1.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
+                  <p class="top"><a href="../static/details.html"><img src="../static/images/art-pic1.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
+                  <p class="top"><a href="../static/details.html"><img src="../static/images/art-pic4.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
+                  <p class="top"><a href="../static/details.html"><img src="../static/images/art-pic3.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
+                  <p class="top"><a href="../static/details.html"><img src="../static/images/art-pic1.jpg" alt="" /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></p>
             </div>
         </div>
     </div>
@@ -173,9 +167,17 @@
 <div class="footer1-bg">
     <div class="wrap">
         <div class="footer1">
-            <p class="w3-link">© 2019 Cars </p>
+            <p class="w3-link">© 2019 Cars Sales </p>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+
+</script>
+
 </body>
 </html>
