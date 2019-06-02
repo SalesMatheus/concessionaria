@@ -15,6 +15,7 @@ mysql = MySQL()
 # Ligar o MYSQL ao Flask
 mysql.init_app(app)
 
+# configuracao do bd
 config(app)
 
 # Rotas para o index
@@ -62,6 +63,20 @@ def salvar_usuario(idlogin):
     else:
         return redirect(url_for('static', filename='404.html', idlogin=idlogin))
 
+# rota para excluir usuario
+@app.route('/usuario_del/<idlogin>' , methods=['GET','POST'])
+def usuario_delete(idlogin):
+
+    if(idlogin):
+        # recupera conexao e cursor
+        conn, cursor = get_db(mysql)
+
+        # Inserindo novo usuario no banco de dados
+        usuario_excluir(conn, cursor, idlogin)
+
+        return render_template('usuario_listar.html', usuarios = listar_usuario(cursor), idlogin=idlogin)
+    else:
+        return redirect(url_for('static', filename='404.html', idlogin=idlogin))
 # Rota para /adm
 @app.route('/adm', methods=['GET','POST'])
 def log():

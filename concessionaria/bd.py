@@ -21,6 +21,11 @@ def usuario_cadastrar(conn,cursor, nome, usuario, login):
     cursor.execute(f'INSERT INTO `concessionaria`.`usuario` (`nome`,`login`, `senha`) VALUES ("{nome}", "{usuario}" ,"{login}")')
     conn.commit()
 
+#deleta usuario
+def usuario_excluir(conn,cursor, idlogin):
+    cursor.execute(f'DELETE FROM `concessionaria`.`usuario` WHERE (`id_usuario` = "{idlogin}")')
+    conn.commit()
+
 # Função listar usuario
 def listar_usuario(cursor):
     # Executar o sql
